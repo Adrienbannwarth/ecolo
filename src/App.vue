@@ -2,12 +2,42 @@
   <div id="app">
     <h1>zéro déchet</h1>
     <nav>
-
+      <ul>
+        <li>
+          <p v-on:click="swiper.slideTo(0, false)" class="nav-link slide-1">
+            Step 1
+          </p>
+        </li>
+        <li>
+          <p v-on:click="swiper.slideTo(1, false)" class="nav-link slide-2">
+            Step 2
+          </p>
+        </li>
+        <li>
+          <p v-on:click="swiper.slideTo(2, false)" class="nav-link slide-3">
+            Step 3
+          </p>
+        </li>
+        <li>
+          <p v-on:click="swiper.slideTo(3, false)" class="nav-link slide-4">
+            Step 4
+          </p>
+        </li>
+        <li>
+          <p v-on:click="swiper.slideTo(4, false)" class="nav-link slide-5">
+            Step 5
+          </p>
+        </li>
+      </ul>
     </nav>
     <swiper ref="mySwiper" :options="swiperOptions">
       <swiper-slide>
         <div class="content">
           <div class="col-6">
+            <h2 class="u-center">Type de déchets</h2>
+            <p class="u-small u-center u-marg-b">
+              en fonction du nombre d'habitants en France
+            </p>
             <canvas id="planet-chart"></canvas>
           </div>
           <div class="col-6">
@@ -15,8 +45,26 @@
           </div>
         </div>
       </swiper-slide>
-      <swiper-slide>Slide 2</swiper-slide>
-      <swiper-slide>Slide 3</swiper-slide>
+      <swiper-slide>
+        <div class="content">
+          <div class="col-6">
+            <canvas id="bar-chart"></canvas>
+          </div>
+          <!-- <div class="col-6">
+            <img class="" :src="'./img/visu_1.png'" alt="ecologie" />
+          </div> -->
+        </div>
+      </swiper-slide>
+      <swiper-slide>
+        <div class="content">
+          <div class="col-6">
+            <canvas id="bubble-chart"></canvas>
+          </div>
+          <!-- <div class="col-6">
+            <img class="" :src="'./img/visu_1.png'" alt="ecologie" />
+          </div> -->
+        </div>
+      </swiper-slide>
       <swiper-slide>Slide 4</swiper-slide>
       <swiper-slide>Slide 5</swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -27,6 +75,9 @@
 <script>
 import Chart from "chart.js";
 import planetChartData from "./chart-data.js";
+import myBarChart from "./chart-data-2.js";
+import myBubbleChart from "./chart-data-3.js";
+
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 
@@ -41,13 +92,10 @@ export default {
   name: "App",
   data() {
     return {
-      swiperOptions: {
-        pagination: {
-          el: ".swiper-pagination",
-        },
-        // Some Swiper option/callback...
-      },
+      swiperOptions: {},
       planetChartData: planetChartData,
+      myBarChart: myBarChart,
+      myBubbleChart: myBubbleChart,
     };
   },
   computed: {
@@ -57,9 +105,10 @@ export default {
   },
   mounted() {
     console.log("array slider: ", this.swiper.slides);
-    console.log("lenght : ", this.swiper.slides.length);
-    this.swiper.slideTo(0, false);
+
     this.createChart("planet-chart", this.planetChartData);
+    this.createChart("bar-chart", this.myBarChart);
+    this.createChart("bubble-chart", this.myBubbleChart);
   },
   methods: {
     // Chart
@@ -76,7 +125,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
+$color-white:   #ffffff;
+$color-black:   #000000;
+$color-yellow:  #fdce62;
+$color-green:   #bcda97;
+
 html,
 body {
   padding: 0;
@@ -87,16 +142,17 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
 }
 
 .swiper-container {
-  height: 100vh;
+  height: calc(100vh - 55px);
 }
 .content {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto;
+  width: 90%;
   height: 100%;
 }
 
@@ -107,6 +163,27 @@ h1 {
   top: 15px;
   text-transform: uppercase;
   font-weight: bold;
+  color: $color-yellow;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.u-center {
+  text-align: center;
+}
+
+.u-small {
+  font-size: 14px;
+}
+
+.u-marg-b {
+  margin-bottom: 20px;
 }
 
 .col-12 {
@@ -119,5 +196,39 @@ h1 {
 
 img {
   width: 80%;
+}
+
+nav {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  top: 100px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+  li {
+    z-index: 2;
+    padding: 0 10px;
+    list-style: none;
+    background-color: $color-white;
+  }
+
+  .nav-link {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: $color-green;
+  }
 }
 </style>
