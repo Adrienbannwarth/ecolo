@@ -41,6 +41,8 @@
             <canvas id="planet-chart"></canvas>
           </div>
           <div class="col-6">
+            <p class="u-xl u-center">12</p>
+            <p class="u-small u-center">tonnes</p>
             <img class="" :src="'./img/visu_1.png'" alt="ecologie" />
           </div>
         </div>
@@ -126,11 +128,12 @@ export default {
 </script>
 
 <style lang="scss">
-
-$color-white:   #ffffff;
-$color-black:   #000000;
-$color-yellow:  #fdce62;
-$color-green:   #bcda97;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-grey: #868686;
+$color-yellow: #fdce62;
+$color-green: #bcda97;
+$color-purple: #808ae5;
 
 html,
 body {
@@ -154,6 +157,10 @@ body {
   margin: auto;
   width: 90%;
   height: 100%;
+}
+
+.u-flex {
+  display: flex;
 }
 
 h1 {
@@ -182,8 +189,15 @@ p {
   font-size: 14px;
 }
 
+.u-xl {
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 5rem;
+  color: $color-purple;
+}
+
 .u-marg-b {
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
 .col-12 {
@@ -216,6 +230,7 @@ nav {
   }
 
   .nav-link {
+    color: $color-grey;
     &:hover {
       cursor: pointer;
     }
