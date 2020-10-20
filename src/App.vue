@@ -4,33 +4,57 @@
     <nav>
       <ul>
         <li>
-          <p v-on:click="swiper.slideTo(0, false)" class="nav-link slide-1">
+          <p
+            v-on:click="swiper.slideTo(0, false)"
+            class="nav-link slide-1"
+            v-bind:class="`${this.index >= 0 ? 'is-active' : ''}`"
+          >
             Step 1
           </p>
         </li>
         <li>
-          <p v-on:click="swiper.slideTo(1, false)" class="nav-link slide-2">
+          <p
+            v-on:click="swiper.slideTo(1, false)"
+            class="nav-link slide-2"
+            v-bind:class="`${this.index >= 1 ? 'is-active' : ''}`"
+          >
             Step 2
           </p>
         </li>
         <li>
-          <p v-on:click="swiper.slideTo(2, false)" class="nav-link slide-3">
+          <p
+            v-on:click="swiper.slideTo(2, false)"
+            class="nav-link slide-3"
+            v-bind:class="`${this.index >= 2 ? 'is-active' : ''}`"
+          >
             Step 3
           </p>
         </li>
         <li>
-          <p v-on:click="swiper.slideTo(3, false)" class="nav-link slide-4">
+          <p
+            v-on:click="swiper.slideTo(3, false)"
+            class="nav-link slide-4"
+            v-bind:class="`${this.index >= 3 ? 'is-active' : ''}`"
+          >
             Step 4
           </p>
         </li>
         <li>
-          <p v-on:click="swiper.slideTo(4, false)" class="nav-link slide-5">
+          <p
+            v-on:click="swiper.slideTo(4, false)"
+            class="nav-link slide-5"
+            v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
+          >
             Step 5
           </p>
         </li>
       </ul>
     </nav>
-    <swiper ref="mySwiper" :options="swiperOptions">
+    <swiper
+      ref="mySwiper"
+      :options="swiperOptions"
+      @slideChange="changeSwiperIndex"
+    >
       <swiper-slide>
         <div class="content">
           <div class="col-6">
@@ -53,7 +77,7 @@
             <canvas id="bar-chart"></canvas>
           </div>
           <!-- <div class="col-6">
-            <img class="" :src="'./img/visu_1.png'" alt="ecologie" />
+          <img class="" :src="'./img/visu_2.png'" alt="ecologie" />
           </div> -->
         </div>
       </swiper-slide>
@@ -67,8 +91,20 @@
           </div> -->
         </div>
       </swiper-slide>
-      <swiper-slide>Slide 4</swiper-slide>
-      <swiper-slide>Slide 5</swiper-slide>
+      <swiper-slide>
+        <!-- <div class="content">
+          <div class="col-6">
+            <img class="" :src="'./img/visu_2.png'" alt="ecologie" />
+          </div>
+        </div> -->
+      </swiper-slide>
+      <swiper-slide>
+        <div class="content">
+          <div class="col-6">
+            <img class="" :src="'./img/visu_2.png'" alt="ecologie" />
+          </div>
+        </div>
+      </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
@@ -94,6 +130,7 @@ export default {
   name: "App",
   data() {
     return {
+      index: 0,
       swiperOptions: {},
       planetChartData: planetChartData,
       myBarChart: myBarChart,
@@ -106,8 +143,6 @@ export default {
     },
   },
   mounted() {
-    console.log("array slider: ", this.swiper.slides);
-
     this.createChart("planet-chart", this.planetChartData);
     this.createChart("bar-chart", this.myBarChart);
     this.createChart("bubble-chart", this.myBubbleChart);
@@ -123,6 +158,11 @@ export default {
       });
       console.log(myChart);
     },
+
+    changeSwiperIndex() {
+      this.index = this.$refs.mySwiper.$swiper.activeIndex;
+      console.log(this.index);
+    },
   },
 };
 </script>
@@ -130,7 +170,7 @@ export default {
 <style lang="scss">
 $color-white: #ffffff;
 $color-black: #000000;
-$color-grey: #868686;
+$color-grey: #c1c1c1;
 $color-yellow: #fdce62;
 $color-green: #bcda97;
 $color-purple: #808ae5;
@@ -233,6 +273,9 @@ nav {
     color: $color-grey;
     &:hover {
       cursor: pointer;
+    }
+    &.is-active {
+      color: $color-purple;
     }
   }
 
