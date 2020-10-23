@@ -9,7 +9,7 @@
             class="nav-link slide-1"
             v-bind:class="`${this.index >= 0 ? 'is-active' : ''}`"
           >
-            Step 1
+            Etat des lieux
           </p>
         </li>
         <li>
@@ -18,7 +18,7 @@
             class="nav-link slide-2"
             v-bind:class="`${this.index >= 1 ? 'is-active' : ''}`"
           >
-            Step 2
+            Alimentation
           </p>
         </li>
         <li>
@@ -27,7 +27,7 @@
             class="nav-link slide-3"
             v-bind:class="`${this.index >= 2 ? 'is-active' : ''}`"
           >
-            Step 3
+            hygiène et intimité
           </p>
         </li>
         <li>
@@ -36,7 +36,7 @@
             class="nav-link slide-4"
             v-bind:class="`${this.index >= 3 ? 'is-active' : ''}`"
           >
-            Step 4
+            Industrie textile et mode
           </p>
         </li>
         <li>
@@ -45,7 +45,16 @@
             class="nav-link slide-5"
             v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
           >
-            Step 5
+            Energie et eau
+          </p>
+        </li>
+        <li>
+          <p
+            v-on:click="swiper.slideTo(4, false)"
+            class="nav-link slide-5"
+            v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
+          >
+            Mobilité
           </p>
         </li>
       </ul>
