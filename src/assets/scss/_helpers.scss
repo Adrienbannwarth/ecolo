@@ -1,0 +1,56 @@
+.u-flex {
+  display: flex;
+  position: relative;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.u-center {
+  text-align: center;
+}
+
+.u-rotate {
+  position: absolute;
+  transform: rotate(-90deg);
+  transform-origin: left;
+  left: 20px;
+  bottom: 0;
+}
+
+
+.u-red {
+  color: $color-red;
+}
+
+.u-black {
+  color: $color-black;
+}
+
+.u-yellow {
+  color: $color-yellow;
+}
+
+.u-small {
+  font-size: 14px;
+}
+
+.u-xl {
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 5rem;
+  color: $color-purple;
+}
+
+.u-marg-b {
+  margin-bottom: 35px;
+}

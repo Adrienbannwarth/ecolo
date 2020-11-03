@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <h1>zéro déchet</h1>
+    <!--------------->
+    <!----  NAV ----->
+    <!--------------->
     <nav>
       <ul>
         <li>
@@ -9,7 +11,7 @@
             class="nav-link slide-1"
             v-bind:class="`${this.index >= 0 ? 'is-active' : ''}`"
           >
-            Etat des lieux
+            <!-- Etat des lieux -->
           </p>
         </li>
         <li>
@@ -18,7 +20,7 @@
             class="nav-link slide-2"
             v-bind:class="`${this.index >= 1 ? 'is-active' : ''}`"
           >
-            Alimentation
+            <!-- Alimentation -->
           </p>
         </li>
         <li>
@@ -27,7 +29,7 @@
             class="nav-link slide-3"
             v-bind:class="`${this.index >= 2 ? 'is-active' : ''}`"
           >
-            hygiène et intimité
+            <!-- hygiène et intimité -->
           </p>
         </li>
         <li>
@@ -36,7 +38,7 @@
             class="nav-link slide-4"
             v-bind:class="`${this.index >= 3 ? 'is-active' : ''}`"
           >
-            Industrie textile et mode
+            <!-- Industrie textile et mode -->
           </p>
         </li>
         <li>
@@ -45,7 +47,7 @@
             class="nav-link slide-5"
             v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
           >
-            Energie et eau
+            <!-- Energie et eau -->
           </p>
         </li>
         <li>
@@ -54,59 +56,32 @@
             class="nav-link slide-5"
             v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
           >
-            Mobilité
+            <!-- Mobilité -->
           </p>
         </li>
       </ul>
     </nav>
+
+    <!--------------->
+    <!----SLIDER----->
+    <!--------------->
     <swiper
       ref="mySwiper"
       :options="swiperOptions"
       @slideChange="changeSwiperIndex"
     >
       <swiper-slide>
-        <div class="content">
-          <div class="col-6">
-            <h2 class="u-center">Type de déchets</h2>
-            <p class="u-small u-center u-marg-b">
-              en fonction du nombre d'habitants en France
-            </p>
-            <canvas id="planet-chart"></canvas>
-          </div>
-          <div class="col-6">
-            <p class="u-xl u-center">12</p>
-            <p class="u-small u-center">tonnes</p>
-            <img class="" :src="'./img/visu_1.png'" alt="ecologie" />
-          </div>
-        </div>
+        <Slider1 />
+      </swiper-slide>
+      <swiper-slide>
+          <Slider2 />
       </swiper-slide>
       <swiper-slide>
         <div class="content">
-          <div class="col-6">
-            <canvas id="bar-chart"></canvas>
-          </div>
-          <!-- <div class="col-6">
-          <img class="" :src="'./img/visu_2.png'" alt="ecologie" />
-          </div> -->
+          <div class="col-6"></div>
         </div>
       </swiper-slide>
-      <swiper-slide>
-        <div class="content">
-          <div class="col-6">
-            <canvas id="bubble-chart"></canvas>
-          </div>
-          <!-- <div class="col-6">
-            <img class="" :src="'./img/visu_1.png'" alt="ecologie" />
-          </div> -->
-        </div>
-      </swiper-slide>
-      <swiper-slide>
-        <!-- <div class="content">
-          <div class="col-6">
-            <img class="" :src="'./img/visu_2.png'" alt="ecologie" />
-          </div>
-        </div> -->
-      </swiper-slide>
+      <swiper-slide> </swiper-slide>
       <swiper-slide>
         <div class="content">
           <div class="col-6">
@@ -127,11 +102,15 @@ import myBubbleChart from "./chart-data-3.js";
 
 import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
+import Slider1 from "../src/views/Slider-1";
+import Slider2 from "../src/views/Slider-2";
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
+    Slider1,
+    Slider2,
   },
   directives: {
     swiper: directive,
@@ -177,17 +156,16 @@ export default {
 </script>
 
 <style lang="scss">
-$color-white: #ffffff;
-$color-black: #000000;
-$color-grey: #c1c1c1;
-$color-yellow: #fdce62;
-$color-green: #bcda97;
-$color-purple: #808ae5;
+@import "./assets/scss/styles.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
 html,
 body {
   padding: 0;
   margin: 0;
+  background-color: #fcfff6;
+  font-size: 10px;
 }
 
 #app {
@@ -208,47 +186,6 @@ body {
   height: 100%;
 }
 
-.u-flex {
-  display: flex;
-}
-
-h1 {
-  position: absolute;
-  margin: 0;
-  left: 20px;
-  top: 15px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: $color-yellow;
-}
-
-h2 {
-  margin: 0;
-}
-
-p {
-  margin: 0;
-}
-
-.u-center {
-  text-align: center;
-}
-
-.u-small {
-  font-size: 14px;
-}
-
-.u-xl {
-  font-size: 100px;
-  font-weight: bold;
-  line-height: 5rem;
-  color: $color-purple;
-}
-
-.u-marg-b {
-  margin-bottom: 35px;
-}
-
 .col-12 {
   width: 100%;
 }
@@ -257,45 +194,18 @@ p {
   width: 50%;
 }
 
-img {
-  width: 80%;
+.col-2 {
+  width: 20%;
+  height: 80%;
 }
 
-nav {
-  position: relative;
-  width: 80%;
-  margin: auto;
-  top: 100px;
-  ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-  }
-  li {
-    z-index: 2;
-    padding: 0 10px;
-    list-style: none;
-    background-color: $color-white;
-  }
+.img-planet {
+  width: 60%;
+}
 
-  .nav-link {
-    color: $color-grey;
-    &:hover {
-      cursor: pointer;
-    }
-    &.is-active {
-      color: $color-purple;
-    }
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 9px;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: $color-green;
-  }
+.column-planet {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 </style>
