@@ -1,66 +1,62 @@
 <template>
   <div id="app">
-    <!--------------->
-    <!----  NAV ----->
-    <!--------------->
-    <nav>
-      <ul>
-        <li>
-          <p
-            v-on:click="swiper.slideTo(0, false)"
-            class="nav-link slide-1"
-            v-bind:class="`${this.index >= 0 ? 'is-active' : ''}`"
-          >
-            <!-- Etat des lieux -->
-          </p>
-        </li>
-        <li>
-          <p
-            v-on:click="swiper.slideTo(1, false)"
-            class="nav-link slide-2"
-            v-bind:class="`${this.index >= 1 ? 'is-active' : ''}`"
-          >
-            <!-- Alimentation -->
-          </p>
-        </li>
-        <li>
-          <p
-            v-on:click="swiper.slideTo(2, false)"
-            class="nav-link slide-3"
-            v-bind:class="`${this.index >= 2 ? 'is-active' : ''}`"
-          >
-            <!-- hygiène et intimité -->
-          </p>
-        </li>
-        <li>
-          <p
-            v-on:click="swiper.slideTo(3, false)"
-            class="nav-link slide-4"
-            v-bind:class="`${this.index >= 3 ? 'is-active' : ''}`"
-          >
-            <!-- Industrie textile et mode -->
-          </p>
-        </li>
-        <li>
-          <p
-            v-on:click="swiper.slideTo(4, false)"
-            class="nav-link slide-5"
-            v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
-          >
-            <!-- Energie et eau -->
-          </p>
-        </li>
-        <li>
-          <p
-            v-on:click="swiper.slideTo(4, false)"
-            class="nav-link slide-5"
-            v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
-          >
-            <!-- Mobilité -->
-          </p>
-        </li>
-      </ul>
-    </nav>
+    <Introduction />
+    <BtnMusic />
+    <div class="c-header">
+      <h2 class="c-header__logo">Zero<br />déchets</h2>
+      <!--------------->
+      <!----  NAV ----->
+      <!--------------->
+      <nav>
+        <ul>
+          <li>
+            <p
+              v-on:click="swiper.slideTo(0, false)"
+              class="nav-link slide-1"
+              v-bind:class="`${this.index >= 0 ? 'is-active' : ''}`"
+            >
+              <!-- Etat des lieux -->
+            </p>
+          </li>
+          <li>
+            <p
+              v-on:click="swiper.slideTo(1, false)"
+              class="nav-link slide-2"
+              v-bind:class="`${this.index >= 1 ? 'is-active' : ''}`"
+            >
+              <!-- Alimentation -->
+            </p>
+          </li>
+          <li>
+            <p
+              v-on:click="swiper.slideTo(2, false)"
+              class="nav-link slide-3"
+              v-bind:class="`${this.index >= 2 ? 'is-active' : ''}`"
+            >
+              <!-- hygiène et intimité -->
+            </p>
+          </li>
+          <li>
+            <p
+              v-on:click="swiper.slideTo(3, false)"
+              class="nav-link slide-4"
+              v-bind:class="`${this.index >= 3 ? 'is-active' : ''}`"
+            >
+              <!-- Industrie textile et mode -->
+            </p>
+          </li>
+          <li>
+            <p
+              v-on:click="swiper.slideTo(4, false)"
+              class="nav-link slide-5"
+              v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
+            >
+              <!-- Energie et eau -->
+            </p>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
     <!--------------->
     <!----SLIDER----->
@@ -73,21 +69,21 @@
       <swiper-slide>
         <Slider1 />
       </swiper-slide>
+
       <swiper-slide>
-          <Slider2 />
+        <Slider2 />
       </swiper-slide>
+
       <swiper-slide>
-        <div class="content">
-          <div class="col-6"></div>
-        </div>
+        <Slider3 />
       </swiper-slide>
-      <swiper-slide> </swiper-slide>
+
       <swiper-slide>
-        <div class="content">
-          <div class="col-6">
-            <img class="" :src="'./img/visu_2.png'" alt="ecologie" />
-          </div>
-        </div>
+        <Slider4 />
+      </swiper-slide>
+
+      <swiper-slide>
+        <Slider5 />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -104,6 +100,11 @@ import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import Slider1 from "../src/views/Slider-1";
 import Slider2 from "../src/views/Slider-2";
+import Slider3 from "../src/views/Slider-3";
+import Slider4 from "../src/views/Slider-4";
+import Slider5 from "../src/views/Slider-5";
+import Introduction from "../src/views/Introduction";
+import BtnMusic from "../src/components/BtnMusic";
 
 export default {
   components: {
@@ -111,6 +112,11 @@ export default {
     SwiperSlide,
     Slider1,
     Slider2,
+    Slider3,
+    Slider4,
+    Slider5,
+    Introduction,
+    BtnMusic
   },
   directives: {
     swiper: directive,
@@ -159,53 +165,5 @@ export default {
 @import "./assets/scss/styles.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-  background-color: #fcfff6;
-  font-size: 10px;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.swiper-container {
-  height: calc(100vh - 55px);
-}
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 90%;
-  height: 100%;
-}
-
-.col-12 {
-  width: 100%;
-}
-
-.col-6 {
-  width: 50%;
-}
-
-.col-2 {
-  width: 20%;
-  height: 80%;
-}
-
-.img-planet {
-  width: 60%;
-}
-
-.column-planet {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 </style>

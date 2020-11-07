@@ -2,9 +2,15 @@
 @import './variables';
 @import './helpers';
 @import './mixins';
+@import './global';
 @import './typography';
 @import './animations';
 
 /* COMPONENTS */
 @import './components/nav';
 @import './components/slider';
+@import './components/graph';
+@import './components/header';
+@import './components/loading';
+@import './components/forms';
+@import './components/music';

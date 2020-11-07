@@ -1,0 +1,13 @@
+.c-header {
+
+  &__logo {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: "Anton", sans-serif;
+    font-weight: bold;
+    color: $color-yellow;
+  }
+}

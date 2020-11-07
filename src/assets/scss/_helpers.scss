@@ -1,5 +1,6 @@
 .u-flex {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
 
@@ -27,13 +28,16 @@
   bottom: 0;
 }
 
-
 .u-red {
   color: $color-red;
 }
 
 .u-black {
   color: $color-black;
+}
+
+.u-white {
+  color: $color-white;
 }
 
 .u-yellow {

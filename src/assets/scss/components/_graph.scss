@@ -1,0 +1,38 @@
+.c-graph {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: auto;
+  width: 60%;
+  height: 90%;
+  padding-bottom: 20px;
+  border-bottom: solid 3px $color-green;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    width: 3px;
+    height: 10px;
+    bottom: 0;
+    background-color: $color-green;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  .img-planet {
+    width: 50%;
+  }
+
+  .column-planet {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

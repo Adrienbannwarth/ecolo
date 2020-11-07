@@ -1,0 +1,45 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: $color-black;
+  background-color: $color-beige;
+  font-size: 10px;
+}
+
+#app {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.swiper-container {
+  height: calc(100vh - 55px);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: auto;
+  width: 70%;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.u-column {
+  flex-direction: column;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-2 {
+  width: 20%;
+}
