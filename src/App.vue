@@ -56,6 +56,10 @@
           </li>
         </ul>
       </nav>
+      <div class="btn-next swiper-button-next">
+        <div class="content"></div>
+        <div class="arrow"></div>
+      </div>
     </div>
 
     <!--------------->
@@ -91,6 +95,9 @@
 </template>
 
 <script>
+import { TimelineLite, Back } from "gsap";
+const timeline = new TimelineLite();
+
 import Chart from "chart.js";
 import planetChartData from "./chart-data.js";
 import myBarChart from "./chart-data-2.js";
@@ -116,7 +123,7 @@ export default {
     Slider4,
     Slider5,
     Introduction,
-    BtnMusic
+    BtnMusic,
   },
   directives: {
     swiper: directive,
@@ -125,7 +132,13 @@ export default {
   data() {
     return {
       index: 0,
-      swiperOptions: {},
+      next: 0,
+      swiperOptions: {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      },
       planetChartData: planetChartData,
       myBarChart: myBarChart,
       myBubbleChart: myBubbleChart,
@@ -156,6 +169,16 @@ export default {
     changeSwiperIndex() {
       this.index = this.$refs.mySwiper.$swiper.activeIndex;
       console.log(this.index);
+      timeline.from(".c-slide__title", 1, {
+        y: 30,
+        opacity: 0,
+        delay: 0.1,
+        ease: Back.easeInOut,
+      });
+    },
+
+    nextSlide() {
+      this.$refs.mySwiper.$swiper.slideNext();
     },
   },
 };

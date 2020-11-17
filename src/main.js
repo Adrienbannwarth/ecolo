@@ -1,12 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Vuesax from 'vuesax' //import dependency
-import 'vuesax/dist/vuesax.css' // import css style
-
-Vue.use(Vuesax) // implement Vuesax throughout the application
+import store from './assets/store'
 
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   render: h => h(App)
 }).$mount('#app')

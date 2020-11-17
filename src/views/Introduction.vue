@@ -1,16 +1,13 @@
 <template>
-  <div v-if="!isHidden" class="c-loading">
+  <div class="c-loading" v-bind:class="isHidden ? 'c-loading__close' : ''">
     <p ref="line" class="c-loading__line u-white">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui vel, est
-      corporis maiores doloremque accusamus.
+      Il est temps d’ouvrir les yeux sur notre situation écologique
     </p>
     <p ref="line2" class="c-loading__line u-white">
-      deuxième Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
-      vel, est corporis maiores doloremque accusamus.
+     Le monde produit 2,01 milliards de tonnes de déchets municipaux dans le monde
     </p>
     <p ref="line3" class="c-loading__line u-white">
-      troisième Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
-      vel, est corporis maiores doloremque accusamus.
+      Si aucune mesure n'est prise, le volume des déchets produits pourrait augmenter<br> de 70 % à près de 3,5 milliards de tonnes dans le monde d'ici à 2050
     </p>
 
     <button v-on:click="isHidden = !isHidden" ref="btn" class="c-loading__btn">Découvrir</button>
@@ -64,7 +61,7 @@ export default {
     timeline.from(line3, 1, {
       y: 100,
       opacity: 0,
-      delay: 0.5,
+      delay: 1,
       skewY: 2,
       ease: Back.out,
     });
@@ -72,7 +69,7 @@ export default {
     timeline.to(line3, 1, {
       y: -100,
       opacity: 0,
-      delay: 1,
+      delay: 2,
       skewY: 2,
       ease: Back.out,
     });

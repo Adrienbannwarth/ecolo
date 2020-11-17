@@ -14,7 +14,7 @@ nav {
     z-index: 2;
     padding: 0 10px;
     list-style: none;
-    background-color: $color-beige;
+    background: inherit;
   }
 
   .nav-link {
@@ -22,6 +22,7 @@ nav {
     height: 20px;
     border: solid 2px $color-black;
     border-radius: 50%;
+    background-color: $color-green;
 
     &:hover {
       cursor: pointer;
@@ -49,9 +50,10 @@ nav {
   &::before {
     content: "";
     position: absolute;
-    top: 9px;
+    top: 10px;
     left: 0;
-    width: 100%;
+    margin-left: 10px;
+    width: calc(100% - 30px);
     height: 2px;
     background-color: $color-black;
   }
