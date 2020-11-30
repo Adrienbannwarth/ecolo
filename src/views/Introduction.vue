@@ -37,7 +37,7 @@ export default {
     timeline.to(line, 1, {
       y: -100,
       opacity: 0,
-      delay: 1,
+      delay: 1.5,
       skewY: 2,
       ease: Back.out,
     });
@@ -53,7 +53,7 @@ export default {
     timeline.to(line2, 1, {
       y: -100,
       opacity: 0,
-      delay: 1,
+      delay: 1.5,
       skewY: 2,
       ease: Back.out,
     });
@@ -69,7 +69,7 @@ export default {
     timeline.to(line3, 1, {
       y: -100,
       opacity: 0,
-      delay: 2,
+      delay: 2.5,
       skewY: 2,
       ease: Back.out,
     });

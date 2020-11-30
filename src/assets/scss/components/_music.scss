@@ -1,31 +1,46 @@
 .c-btn-music {
+  z-index: 1000;
   position: absolute;
   display: flex;
   bottom: 30px;
   left: 30px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border-radius: 50%;
 
   .line {
     display: block;
     position: absolute;
-    bottom: 0;
-    width: 3px;
+    left: 13px;
+    bottom: 11px;
+    width: 2px;
     height: 20px;
-    background-color: black;
-  
+    background-color: white;
 
     &:nth-child(1) {
       margin-left: 6px;
       animation: 1s line1 0s infinite ease-in-out;
     }
+
     &:nth-child(2) {
       margin-left: 12px;
       animation: 1.6s line2 0s infinite ease-in-out;
     }
+
     &:nth-child(3) {
       animation: 1.3s line3 0s infinite ease-in-out;
     }
+  }
+
+  &.is-paused {
+    .line {
+      height: 4px;
+      animation: none;
+    }
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -35,7 +50,7 @@
   }
 
   50% {
-    height: 16px;
+    height: 12px;
   }
 
   100% {
@@ -49,7 +64,7 @@
   }
 
   50% {
-    height: 17px;
+    height: 14px;
   }
 
   100% {
@@ -63,7 +78,7 @@
   }
 
   50% {
-    height: 15px;
+    height: 11px;
   }
 
   100% {

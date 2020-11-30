@@ -95,3 +95,31 @@
     width: 80%;
   }
 }
+
+.c-graph4 {
+  width: 80%;
+  height: 90%;
+  margin: auto;
+  align-items: center;
+
+  .content-chart {
+    width: 60%;
+    margin: auto;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  height: 100%;
+
+  .bar {
+    position: absolute;
+    left: 100px;
+    bottom: 0px;
+    width: 200px;
+    background-color: rgb(96, 121, 152);
+  }
+}

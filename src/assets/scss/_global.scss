@@ -12,6 +12,17 @@ body {
 
 #app {
   font-family: 'Montserrat', sans-serif;
+  display: flex;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  transition: all .5s;
+
+  &.is-reduce {
+    width: 75%;
+  }
 }
 
 .swiper-container {

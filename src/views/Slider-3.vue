@@ -12,7 +12,7 @@
       </p>
       <br />
       <p>
-        <span class="text--xl">1.2 Millairds </span> de tonnes de gaz à effet de
+        <span class="text--xl">1.2 Milliards </span> de tonnes de gaz à effet de
         serre par an à cause de la production et le transport des textiles
       </p>
     </div>
@@ -26,7 +26,7 @@
       </p>
       <p>
         <span class="text--xl">15 000 T</span> de produits textiles sont détruits
-        en France soit l’équivalent du poids d’un ou deux Tour Eiffel
+        en France soit l’équivalent du poids d’une ou deux Tour Eiffel
       </p>
     </div>
   </div>

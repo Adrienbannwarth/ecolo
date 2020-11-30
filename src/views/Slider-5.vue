@@ -53,7 +53,7 @@
     <div class="col-6 c-form__column">
       <div class="c-form__group">
         <h3 class="c-form__title text--xl">
-          Envis de connaître ta consommation de déchet ?
+          Envie de connaître ta consommation de déchet ?
         </h3>
       </div>
     </div>

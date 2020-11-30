@@ -1,96 +1,143 @@
 <template>
   <div id="app">
     <Introduction />
-    <BtnMusic />
-    <div class="c-header">
-      <h2 class="c-header__logo">Zero<br />déchets</h2>
-      <!--------------->
-      <!----  NAV ----->
-      <!--------------->
-      <nav>
-        <ul>
-          <li>
-            <p
-              v-on:click="swiper.slideTo(0, false)"
-              class="nav-link slide-1"
-              v-bind:class="`${this.index >= 0 ? 'is-active' : ''}`"
-            >
-              <!-- Etat des lieux -->
-            </p>
-          </li>
-          <li>
-            <p
-              v-on:click="swiper.slideTo(1, false)"
-              class="nav-link slide-2"
-              v-bind:class="`${this.index >= 1 ? 'is-active' : ''}`"
-            >
-              <!-- Alimentation -->
-            </p>
-          </li>
-          <li>
-            <p
-              v-on:click="swiper.slideTo(2, false)"
-              class="nav-link slide-3"
-              v-bind:class="`${this.index >= 2 ? 'is-active' : ''}`"
-            >
-              <!-- hygiène et intimité -->
-            </p>
-          </li>
-          <li>
-            <p
-              v-on:click="swiper.slideTo(3, false)"
-              class="nav-link slide-4"
-              v-bind:class="`${this.index >= 3 ? 'is-active' : ''}`"
-            >
-              <!-- Industrie textile et mode -->
-            </p>
-          </li>
-          <li>
-            <p
-              v-on:click="swiper.slideTo(4, false)"
-              class="nav-link slide-5"
-              v-bind:class="`${this.index >= 4 ? 'is-active' : ''}`"
-            >
-              <!-- Energie et eau -->
-            </p>
-          </li>
-        </ul>
-      </nav>
-      <div class="btn-next swiper-button-next">
-        <div class="content"></div>
-        <div class="arrow"></div>
-      </div>
+    <div class="content-tips" v-bind:class="`${this.isOpen ? 'is-open' : ''}`">
+      <img
+        v-on:click="isOpen = !isOpen"
+        class="btn-close"
+        :src="'./img/cross.svg'"
+        alt="cross"
+      />
     </div>
 
-    <!--------------->
-    <!----SLIDER----->
-    <!--------------->
-    <swiper
-      ref="mySwiper"
-      :options="swiperOptions"
-      @slideChange="changeSwiperIndex"
-    >
-      <swiper-slide>
-        <Slider1 />
-      </swiper-slide>
+    <div class="container">
+      <audio loop id="audio" src="/music/music.mp3">
+        You're browser is Outdated . Please Update The Browser
+      </audio>
 
-      <swiper-slide>
-        <Slider2 />
-      </swiper-slide>
+      <!--------------->
+      <!---  MUSIC ---->
+      <!--------------->
+      <div
+        v-on:click="this.togglePlay"
+        class="c-btn-music"
+        v-bind:class="`${this.isPaused ? 'is-paused' : ''}`"
+      >
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
 
-      <swiper-slide>
-        <Slider3 />
-      </swiper-slide>
+      <!--------------->
+      <!---  TIPS ---->
+      <!--------------->
+      <div class="btn-tips" v-on:click="this.openTips">
+        <p>astuces</p>
+      </div>
 
-      <swiper-slide>
-        <Slider4 />
-      </swiper-slide>
+      <div class="c-header">
+        <h2 class="c-header__logo">Zero<br />déchet</h2>
+        <!--------------->
+        <!----  NAV ----->
+        <!--------------->
+        <nav>
+          <ul>
+            <li>
+              <p
+                v-on:click="swiper.slideTo(0, false)"
+                class="nav-link slide-1"
+                v-bind:class="`${this.index >= 0 ? 'is-active' : ''}`"
+              >
+                <!-- Etat des lieux -->
+              </p>
+            </li>
+            <li>
+              <p
+                v-on:click="swiper.slideTo(1, false)"
+                class="nav-link slide-2"
+                v-bind:class="`${this.index >= 1 ? 'is-active' : ''}`"
+              >
+                <!-- Alimentation -->
+              </p>
+            </li>
+            <li>
+              <p
+                v-on:click="swiper.slideTo(2, false)"
+                class="nav-link slide-3"
+                v-bind:class="`${this.index >= 3 ? 'is-active' : ''}`"
+              >
+                <!-- hygiène et intimité -->
+              </p>
+            </li>
+            <li>
+              <p
+                v-on:click="swiper.slideTo(3, false)"
+                class="nav-link slide-4"
+                v-bind:class="`${this.index >= 5 ? 'is-active' : ''}`"
+              >
+                <!-- Industrie textile et mode -->
+              </p>
+            </li>
+            <li>
+              <p
+                v-on:click="swiper.slideTo(4, false)"
+                class="nav-link slide-5"
+                v-bind:class="`${this.index >= 7 ? 'is-active' : ''}`"
+              >
+                <!-- Energie et eau -->
+              </p>
+            </li>
+          </ul>
+        </nav>
+        <div class="btn-next swiper-button-next">
+          <div class="content"></div>
+          <div class="arrow"></div>
+        </div>
+      </div>
 
-      <swiper-slide>
-        <Slider5 />
-      </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
+      <!--------------->
+      <!----SLIDER----->
+      <!--------------->
+      <swiper
+        class="swiper"
+        ref="mySwiper"
+        :options="swiperOptions"
+        @slideChange="changeSwiperIndex"
+      >
+        <swiper-slide>
+          <Slider1 />
+        </swiper-slide>
+
+        <swiper-slide>
+          <Slider2Intro />
+        </swiper-slide>
+
+        <swiper-slide>
+          <Slider2 />
+        </swiper-slide>
+
+        <swiper-slide>
+          <Slider3Intro />
+        </swiper-slide>
+
+        <swiper-slide>
+          <Slider3 />
+        </swiper-slide>
+
+        <swiper-slide>
+          <Slider4Intro />
+        </swiper-slide>
+
+        <swiper-slide>
+          <Slider4 />
+        </swiper-slide>
+
+        <swiper-slide>
+          <Slider5 />
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
   </div>
 </template>
 
@@ -111,7 +158,9 @@ import Slider3 from "../src/views/Slider-3";
 import Slider4 from "../src/views/Slider-4";
 import Slider5 from "../src/views/Slider-5";
 import Introduction from "../src/views/Introduction";
-import BtnMusic from "../src/components/BtnMusic";
+import Slider2Intro from "../src/views/Slider2Intro";
+import Slider3Intro from "../src/views/Slider3Intro";
+import Slider4Intro from "../src/views/Slider4Intro";
 
 export default {
   components: {
@@ -122,8 +171,10 @@ export default {
     Slider3,
     Slider4,
     Slider5,
+    Slider2Intro,
+    Slider3Intro,
+    Slider4Intro,
     Introduction,
-    BtnMusic,
   },
   directives: {
     swiper: directive,
@@ -131,6 +182,8 @@ export default {
   name: "App",
   data() {
     return {
+      isOpen: false,
+      isPaused: true,
       index: 0,
       next: 0,
       swiperOptions: {
@@ -155,6 +208,12 @@ export default {
     this.createChart("bubble-chart", this.myBubbleChart);
   },
   methods: {
+    togglePlay() {
+      this.isPaused = !this.isPaused;
+      var myAudio = document.getElementById("audio");
+      myAudio.volume = 0.3;
+      return myAudio.paused ? myAudio.play() : myAudio.pause();
+    },
     // Chart
     createChart(chartId, chartData) {
       const ctx = document.getElementById(chartId);
@@ -179,6 +238,10 @@ export default {
 
     nextSlide() {
       this.$refs.mySwiper.$swiper.slideNext();
+    },
+
+    openTips() {
+      this.isOpen = !this.isOpen;
     },
   },
 };

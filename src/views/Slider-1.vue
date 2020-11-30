@@ -2,7 +2,10 @@
   <div class="slider-1">
     <div class="c-graph u-flex u-center">
       <div class="col-12">
-       <p class="p-italic c-slide__title">→ Combien de planète Terre faudrait-il si la population mondiale vivait comme les habitants de ...</p>
+        <p class="p-italic c-slide__title">
+          → Combien de planète Terre faudrait-il si la population mondiale
+          vivait comme les habitants de ...
+        </p>
       </div>
       <div class="col-2 column-planet">
         <div class="u-flex align-items-center">
@@ -36,6 +39,7 @@
         <div class="u-flex align-items-center">
           <p class="u-rotate text--md">Etats-Unis</p>
           <div class="u-flex flex-column align-items-center">
+            <img class="img-planet" :src="'./img/earth.png'" alt="ecologie" />
             <img class="img-planet" :src="'./img/earth.png'" alt="ecologie" />
             <img class="img-planet" :src="'./img/earth.png'" alt="ecologie" />
             <img class="img-planet" :src="'./img/earth.png'" alt="ecologie" />
