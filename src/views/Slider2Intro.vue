@@ -5,6 +5,7 @@
       <p>
         ⅓ des aliments produits sur la planète sont jetés sans être consommés.
       </p>
+      <br>
       <p>
         75% des terres agricoles du globe sont dédiés à la nourriture du
         bétail..

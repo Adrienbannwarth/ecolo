@@ -6,25 +6,6 @@
   width: 60%;
   height: 85%;
   padding-bottom: 20px;
-  border-bottom: solid 3px $color-green;
-
-  &::before,
-  &::after {
-    position: absolute;
-    content: '';
-    width: 3px;
-    height: 10px;
-    bottom: 0;
-    background-color: $color-green;
-  }
-
-  &::before {
-    left: 0;
-  }
-
-  &::after {
-    right: 0;
-  }
 
   .img-planet {
     width: 50%;

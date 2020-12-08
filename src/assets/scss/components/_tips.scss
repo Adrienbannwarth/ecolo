@@ -14,13 +14,16 @@
   z-index: 1000;
   top: 0;
   right: 0;
-  height: 100Vh;
+  height: calc(100vh - 100px);
   width: 25%;
+  padding: 70px 30px 30px 30px;
   box-shadow: 0px 4px 65px rgba(0, 0, 0, 0.25);
   background-color: white;
 
   transform: translateX(100%);
   transition: all .5s;
+
+  overflow-y: scroll;
 
   &.is-open {
     transform: translateX(0%);
@@ -35,5 +38,9 @@
     &:hover {
       cursor: pointer;
     }
+  }
+
+  p+p {
+    margin-top: 20px;
   }
 }

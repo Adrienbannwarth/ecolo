@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Introduction />
+    <!-- <Introduction /> -->
     <div class="content-tips" v-bind:class="`${this.isOpen ? 'is-open' : ''}`">
       <img
         v-on:click="isOpen = !isOpen"
@@ -8,6 +8,26 @@
         :src="'./img/cross.svg'"
         alt="cross"
       />
+      <div v-if="this.index == 2">
+        <p class="h4">Astuce alimentation :</p>
+        <p>
+          - Acheter ce que vous avez réellement besoin (eviter les achats
+          impulsifs)<br />
+          - Composter ses déchets alimentaires <br />
+          - Cuisiner les restes<br />
+          - Manger local <br />
+          - Manger des fruits et des légumes de saison <br />
+          - Manger moins de viande et de produits laitiers
+        </p>
+        <p class="h4">Le saviez-vous?</p>
+        <p>
+          Arrêter le café en capsules : + 395 € d'économie / an La capsule de
+          café est un fléau pour la planète puisqu'elle représente 40 000 tonnes
+          de déchets par an. Mais c'est aussi un drame pour votre porte monnaie
+          puisqu'elle coûte environ 5 fois plus cher que le café moulu
+          classique.
+        </p>
+      </div>
     </div>
 
     <div class="container">
@@ -157,7 +177,7 @@ import Slider2 from "../src/views/Slider-2";
 import Slider3 from "../src/views/Slider-3";
 import Slider4 from "../src/views/Slider-4";
 import Slider5 from "../src/views/Slider-5";
-import Introduction from "../src/views/Introduction";
+// import Introduction from "../src/views/Introduction";
 import Slider2Intro from "../src/views/Slider2Intro";
 import Slider3Intro from "../src/views/Slider3Intro";
 import Slider4Intro from "../src/views/Slider4Intro";
@@ -174,7 +194,7 @@ export default {
     Slider2Intro,
     Slider3Intro,
     Slider4Intro,
-    Introduction,
+    // Introduction,
   },
   directives: {
     swiper: directive,

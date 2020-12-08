@@ -2,10 +2,7 @@
   <div class="slider-1">
     <div class="c-graph u-flex u-center">
       <div class="col-12">
-        <p class="p-italic c-slide__title">
-          → Combien de planète Terre faudrait-il si la population mondiale
-          vivait comme les habitants de ...
-        </p>
+        <p class="h3">Notre planète</p>
       </div>
       <div class="col-2 column-planet">
         <div class="u-flex align-items-center">
@@ -79,6 +76,10 @@
         <span class="text--xl">0,6</span>
       </div>
     </div>
+    <p class="p-italic u-center">
+      → Combien de planète Terre faudrait-il si la population mondiale vivait
+      comme les habitants de ...
+    </p>
   </div>
 </template>
 
